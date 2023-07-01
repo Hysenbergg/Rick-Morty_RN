@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, View, Text, Image} from 'react-native';
+import {SafeAreaView, View, Text, Image, ImageBackground} from 'react-native';
 import axios from 'axios';
 import styles from './CharacterPage.style';
 
@@ -44,7 +44,7 @@ function CharacterPage({route}) {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ImageBackground source={require('../../assets/rickandmorty.png')} style={styles.container}>
       <View style={styles.image_container}>
         {imageSource && <Image style={styles.image} source={imageSource} />}
         <Text style={styles.image_name}>{data.name}</Text>
@@ -55,7 +55,7 @@ function CharacterPage({route}) {
         <InfoComponent title="Origin: " description={data.origin && data.origin.name} />
         <InfoComponent title="Gender: " description={data.gender} />
       </View>
-    </SafeAreaView>
+    </ImageBackground>
   );
 }
 

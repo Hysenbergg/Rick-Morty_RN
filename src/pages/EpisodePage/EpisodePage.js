@@ -6,6 +6,7 @@ import {
   Text,
   Image,
   TouchableOpacity,
+  ImageBackground
 } from 'react-native';
 import axios from 'axios';
 import styles from './EpisodePage.style';
@@ -56,13 +57,13 @@ function EpisodePage({route, navigation}) {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ImageBackground source={require('../../assets/rickandmorty2.jpg')} style={styles.container}>
       <FlatList
         data={data}
         keyExtractor={item => item.id}
         renderItem={CharactersPage}
       />
-    </SafeAreaView>
+    </ImageBackground>
   );
 }
 

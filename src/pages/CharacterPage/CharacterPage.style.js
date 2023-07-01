@@ -4,11 +4,10 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#BCDB43',
-    justifyContent: 'center',
     alignItems: 'center',
   },
-  image_container: { margin: 10, alignItems: 'center', marginBottom: 50},
-  image: {width: 250, height: 250, borderWidth: 1, borderRadius: 10},
+  image_container: { margin: 10, alignItems: 'center', marginTop: 30},
+  image: {width: 150, height: 150, borderWidth: 1, borderRadius: 10},
   image_name: {fontSize: 32, color: 'black'},
 
   /* Character Card */

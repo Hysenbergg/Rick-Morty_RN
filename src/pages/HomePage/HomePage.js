@@ -5,6 +5,7 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
+  ImageBackground
 } from 'react-native';
 import axios from 'axios';
 import styles from './HomePage.style';
@@ -69,7 +70,7 @@ function HomePage({navigation}) {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ImageBackground source={require('../../assets/rickandmortywallpaper.jpg')} style={styles.container}>
       <FlatList
         data={data}
         keyExtractor={item => item.id}
@@ -94,8 +95,36 @@ function HomePage({navigation}) {
           <Text style={styles.pagination_button_text}>Next</Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </ImageBackground>
   );
 }
 
 export default HomePage;
+
+/*
+<SafeAreaView style={styles.container}>
+      <FlatList
+        data={data}
+        keyExtractor={item => item.id}
+        renderItem={EpisodeCard}
+      />
+
+      <View style={styles.pagination_container}>
+        <TouchableOpacity
+          style={styles.pagination_button}
+          disabled={page === 1 ? true : false}
+          onPress={() => handlePrevPage()}>
+          <Text style={styles.pagination_button_text}>Previous</Text>
+        </TouchableOpacity>
+        <View style={styles.page_count_cont}>
+          <Text style={styles.page_count}>{page}/3</Text>
+        </View>
+        <TouchableOpacity
+          style={styles.pagination_button}
+          disabled={page === 3 ? true : false}
+          onPress={() => handleNextPage()}>
+          <Text style={styles.pagination_button_text}>Next</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
+*/

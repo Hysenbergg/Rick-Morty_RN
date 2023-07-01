@@ -51,5 +51,5 @@ export default StyleSheet.create({
   },
   pagination_button_text: {padding: 10, color: 'white', fontSize: 15},
   page_count_cont: {justifyContent: 'center', width: 50, alignItems: 'center'},
-  page_count: {fontSize: 21, color: '#2A6574'},
+  page_count: {fontSize: 21, color: 'white', backgroundColor: '#2A6574', borderRadius: 10, padding: 5},
 });
