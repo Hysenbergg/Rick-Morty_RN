@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {
-  SafeAreaView,
   View,
   Text,
   FlatList,
@@ -12,11 +11,15 @@ import styles from './HomePage.style';
 
 function HomePage({navigation}) {
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(20);
 
-  const handleLoading = async () => {
+  // Pagination yapısının varlığından dolayı hooks işlemini bu dosyanın içerisinde gerçekleştirdim.
+  async function pageLoading(){
     try {
+      setLoading(true);
       const {data: responseData} = await axios.get(
         `https://rickandmortyapi.com/api/episode?page=${page}`,
         {
@@ -29,13 +32,15 @@ function HomePage({navigation}) {
       if (page === 3) {
         setTotalPages(11);
       }
+      setLoading(false);
     } catch (error) {
-      console.log(error);
+      setError(e.message);
+      setLoading(false);
     }
-  };
+  }
 
   useEffect(() => {
-    handleLoading();
+    pageLoading();
   }, [page]);
 
   const handleSelect = item => {
@@ -100,31 +105,3 @@ function HomePage({navigation}) {
 }
 
 export default HomePage;
-
-/*
-<SafeAreaView style={styles.container}>
-      <FlatList
-        data={data}
-        keyExtractor={item => item.id}
-        renderItem={EpisodeCard}
-      />
-
-      <View style={styles.pagination_container}>
-        <TouchableOpacity
-          style={styles.pagination_button}
-          disabled={page === 1 ? true : false}
-          onPress={() => handlePrevPage()}>
-          <Text style={styles.pagination_button_text}>Previous</Text>
-        </TouchableOpacity>
-        <View style={styles.page_count_cont}>
-          <Text style={styles.page_count}>{page}/3</Text>
-        </View>
-        <TouchableOpacity
-          style={styles.pagination_button}
-          disabled={page === 3 ? true : false}
-          onPress={() => handleNextPage()}>
-          <Text style={styles.pagination_button_text}>Next</Text>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
-*/

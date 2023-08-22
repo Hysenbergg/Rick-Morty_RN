@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, View, Text, Image, ImageBackground} from 'react-native';
+import {View, Text, Image, ImageBackground} from 'react-native';
 import axios from 'axios';
 import styles from './CharacterPage.style';
 
