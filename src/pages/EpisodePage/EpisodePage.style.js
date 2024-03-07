@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-    container: {flex: 1, backgroundColor: '#BCDB43'},
+    container: {flex: 1, backgroundColor: '#BCDB43', position: 'relative'},
 
     /* Card Component */
     card_container_touch: {flex: 1},
